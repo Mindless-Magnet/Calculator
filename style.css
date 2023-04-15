@@ -34,6 +34,7 @@ body, html{
 
 .buttons{
     display: flex;
+    margin:5%;
     background-color: white;
     min-width: 80%;
     min-height: 50%;
@@ -50,12 +51,15 @@ body, html{
     align-items: center;
     justify-content: center;
     border: 1px solid black;
-    min-width: 30%;
+    flex: 1;
+
 }
 
 .numbers{
     display: flex;
     flex-direction: column;
+    flex: 1;
+    padding: 8px;
 }
 
 .numbers > div{
