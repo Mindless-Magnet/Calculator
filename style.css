@@ -43,6 +43,15 @@ body, html{
     justify-content: center;
     align-items: center;
 }
+.num, .op{
+    padding: 8px;
+    margin: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    min-width: 30%;
+}
 
 .numbers{
     display: flex;
