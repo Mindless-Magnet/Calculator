@@ -39,3 +39,4 @@ function operate(a, b, o){
         divide(a,b);
     };
 }
+

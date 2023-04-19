@@ -66,3 +66,18 @@ body, html{
     display: flex;
     flex-direction: row;
 }
+
+.num{
+    color: black;
+    background-color: white;
+}
+
+.op{
+    color: orange;
+    background-color: black;
+}
+
+#dot, #eq{
+    color: white;
+    background-color: black;
+}
