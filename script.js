@@ -20,20 +20,16 @@ const divide = document.querySelector('.op.divide');
 const modulus = document.querySelector('.op.modulus');
 const multiply = document.querySelector('.op.multiply');
 
+const clear = document.querySelector('.op.clear');
+
 
 const result =  document.querySelector('.display');
+result.value = " ";
 
 //to change the display
 function display(n){
-    // if(result.value !== undefined && result.value!== null){
-    //     if (result.value.length >= 3)
-    //         {
-    //             result.value = '';
-    //         }
-    // }
     result.value+=n;
     result.innerHTML = result.value;
-    console.log(result.value)
 }
 
 
@@ -113,14 +109,20 @@ num0.addEventListener('click', function() {
   multiply.addEventListener('click', function() {
     display('*');
   });
+  // event listener for clear button
+ clear.addEventListener('click', function(){
+    result.value=" ";
+    result.innerHTML = result.value;
+ })
   
-  function calculate() {
+ function calculate() {
     // Get the current display value
-    var displayValue = display.value;
-  
+    var displayValue = result.value;
+
     // Perform calculation (example: evaluate the expression using eval())
-    var result = eval(displayValue);
-  
+    var calculatedResult = eval(displayValue);
+
     // Update the display with the result
-    display.value = result;
-  }
+    result.value = calculatedResult;
+    result.innerHTML = calculatedResult;
+}
