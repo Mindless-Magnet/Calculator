@@ -22,12 +22,13 @@ body, html{
 .display{
     margin-bottom: auto;
     margin-top: 50px;
-    padding-right: 8px;
+    padding-right: 20px;
+    padding-bottom: 8px;;
     border-radius: 20px;
     background-color: white;
     min-width: 80%;
     min-height: 25%;
-    font-size: x-large;
+    font-size: xx-large;
     font-weight: bold;
     display: flex;
     justify-content: flex-end;
@@ -41,6 +42,7 @@ body, html{
     background-color: white;
     min-width: 80%;
     min-height: 50%;
+    font-size: x-large;
     border-radius: 20px;
     margin-bottom: auto;
     margin-top: 20px;
@@ -50,7 +52,6 @@ body, html{
 .num, .op{
     padding: 8px;
     margin: 8px;
-    height: 50px;
     display: flex;
     border-radius: 10%;
     font-size: large;

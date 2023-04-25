@@ -32,6 +32,11 @@ function display(n){
     result.innerHTML = result.value;
 }
 
+// function to round off the numbers
+function roundNumber(number, decimalPlaces) {
+  var multiplier = Math.pow(10, decimalPlaces);
+  return Math.round(number * multiplier) / multiplier;
+}
 
 // event listeners for all buttons
 num0.addEventListener('click', function() {
@@ -122,7 +127,11 @@ num0.addEventListener('click', function() {
     // Perform calculation (example: evaluate the expression using eval())
     var calculatedResult = eval(displayValue);
 
+    calculatedResult = roundNumber(calculatedResult, 2);
     // Update the display with the result
     result.value = calculatedResult;
-    result.innerHTML = calculatedResult;
+    result.innerHTML = "="+calculatedResult;
 }
+
+
+
