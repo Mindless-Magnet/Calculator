@@ -1,63 +1,126 @@
-// math functions
-
-function add(a, b){
-    return a+b;
-};
-
-function subtract(a, b){
-    return a-b;
-};
-
-function multiply(a, b){
-    return a*b;
-};
-
-function divide(a, b){
-    return a/b;
-};
-
-// variables for arithmetic expression
-
-var a=0;
-var b=0;
-var o='';
-
-
-// operate function
-
-function operate(a, b, o){
-    if (o === '+'){
-        add(a,b);
-    };
-    if (o === '-'){
-        subtract(a,b);
-    };
-    if (o === '*'){
-        multiply(a,b);
-    };
-    if (o === '/'){
-        divide(a,b);
-    };
-}
 
 // getting the buttons
-const num0 = document.querySelector('.0');
-const num1 = document.querySelector('.1');
-const num2 = document.querySelector('.2');
-const num3 = document.querySelector('.3');
-const num4 = document.querySelector('.4');
-const num5 = document.querySelector('.5');
-const num6 = document.querySelector('.6');
-const num7 = document.querySelector('.7');
-const num8 = document.querySelector('.8');
-const num9 = document.querySelector('.9');
+const num0 = document.querySelector('.num.zero');
+const num1 = document.querySelector('.num.one');
+const num2 = document.querySelector('.num.two');
+const num3 = document.querySelector('.num.three');
+const num4 = document.querySelector('.num.four');
+const num5 = document.querySelector('.num.five');
+const num6 = document.querySelector('.num.six');
+const num7 = document.querySelector('.num.seven');
+const num8 = document.querySelector('.num.eight');
+const num9 = document.querySelector('.num.nine');
 
-const decimal = document.querySelector('.decimal');
+const decimal = document.querySelector('.num.decimal');
 
-const equals = document.querySelector('.equals');
-const plus = document.querySelector('.plus');
-const minus = document.querySelector('.minus');
-const divide = document.querySelector('.divide');
-const modulus = document.querySelector('.modulus');
-const multiply = document.querySelector('.multiply');
+const equals = document.querySelector('.num.equals');
+const plus = document.querySelector('.op.plus');
+const minus = document.querySelector('.op.minus');
+const divide = document.querySelector('.op.divide');
+const modulus = document.querySelector('.op.modulus');
+const multiply = document.querySelector('.op.multiply');
 
+
+const result =  document.querySelector('.display');
+
+//to change the display
+function display(n){
+    // if(result.value !== undefined && result.value!== null){
+    //     if (result.value.length >= 3)
+    //         {
+    //             result.value = '';
+    //         }
+    // }
+    result.value+=n;
+    result.innerHTML = result.value;
+    console.log(result.value)
+}
+
+
+// event listeners for all buttons
+num0.addEventListener('click', function() {
+    display('0');
+  });
+  
+  num1.addEventListener('click', function() {
+    display('1');
+  });
+  
+  num2.addEventListener('click', function() {
+    display('2');
+  });
+  
+  num3.addEventListener('click', function() {
+    display('3');
+  });
+  
+  num4.addEventListener('click', function() {
+    display('4');
+  });
+  
+  num5.addEventListener('click', function() {
+    display('5');
+  });
+  
+  num6.addEventListener('click', function() {
+    display('6');
+  });
+  
+  num7.addEventListener('click', function() {
+    display('7');
+  });
+  
+  num8.addEventListener('click', function() {
+    display('8');
+  });
+  
+  num9.addEventListener('click', function() {
+    display('9');
+  });
+  
+  // Add event listener for decimal button
+  decimal.addEventListener('click', function() {
+    display('.');
+  });
+  
+  // Add event listener for equals button
+  equals.addEventListener('click', function() {
+    // Perform calculation and update display with result
+    calculate();
+  });
+  
+  // Add event listener for plus button
+  plus.addEventListener('click', function() {
+    display('+');
+  });
+  
+  // Add event listener for minus button
+  minus.addEventListener('click', function() {
+    display('-');
+  });
+  
+  // Add event listener for divide button
+  divide.addEventListener('click', function() {
+    display('/');
+  });
+  
+  // Add event listener for modulus button
+  modulus.addEventListener('click', function() {
+    display('%');
+  });
+  
+  // Add event listener for multiply button
+  multiply.addEventListener('click', function() {
+    display('*');
+  });
+  
+  function calculate() {
+    // Get the current display value
+    var displayValue = display.value;
+  
+    // Perform calculation (example: evaluate the expression using eval())
+    var result = eval(displayValue);
+  
+    // Update the display with the result
+    display.value = result;
+  }
