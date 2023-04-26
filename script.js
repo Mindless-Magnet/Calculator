@@ -22,12 +22,19 @@ const multiply = document.querySelector('.op.multiply');
 
 const clear = document.querySelector('.op.clear');
 
-
+const back = document.querySelector('.op.back');
+const answer = document.querySelector('.op.Ans');
 const result =  document.querySelector('.display');
 result.value = " ";
 
 //to change the display
 function display(n){
+  if(newline === true)
+  {
+    result.value = " ";
+    result.innerHTML = result.value;
+    newline = false;
+  }
     result.value+=n;
     result.innerHTML = result.value;
 }
@@ -38,6 +45,8 @@ function roundNumber(number, decimalPlaces) {
   return Math.round(number * multiplier) / multiplier;
 }
 
+
+// for clicks
 // event listeners for all buttons
 num0.addEventListener('click', function() {
     display('0');
@@ -119,19 +128,83 @@ num0.addEventListener('click', function() {
     result.value=" ";
     result.innerHTML = result.value;
  })
+
+ //answer button (stores previous answer)
+ answer.addEventListener('click',function(){
+  result.value+=ans;
+  result.innerHTML = result.value;
+ } )
+
+ // backspace button
+ back.addEventListener('click', function(){
+  result.value = (result.value).slice(0, -1);
+  result.innerHTML = result.value;
+ })
+
   
+var ans = 0;
+var newline = false;
+
  function calculate() {
     // Get the current display value
     var displayValue = result.value;
-
+  
     // Perform calculation (example: evaluate the expression using eval())
     var calculatedResult = eval(displayValue);
-
+    ans = calculatedResult;
     calculatedResult = roundNumber(calculatedResult, 2);
     // Update the display with the result
     result.value = calculatedResult;
-    result.innerHTML = "="+calculatedResult;
+    result.innerHTML = calculatedResult;
+    newline = true;
 }
 
 
+//for keyboard
 
+window.addEventListener('keydown', function(e){
+  if(e.key === "0")
+  {display('0')}
+  else if(e.key === "1")
+  {display('1')}
+  else if(e.key === "2")
+  {display('2')}
+  else if(e.key === "3")
+  {display('3')}
+  else if(e.key === "4")
+  {display('4')}
+  else if(e.key === "5")
+  {display('5')}
+  else if(e.key === "6")
+  {display('6')}
+  else if(e.key === "7")
+  {display('7')}
+  else if(e.key === "8")
+  {display('8')}
+  else if(e.key === "9")
+  {display('9')}
+  else if(e.key === ".")
+  {display('.')}
+  else if(e.key === "+")
+  {display('+')}
+  else if(e.key === "-")
+  {display('-')}
+  else if(e.key === "*")
+  {display('*')}
+  else if(e.key === "/")
+  {display('/')}
+  else if(e.key === "%")
+  {display('%')}
+  else if(e.key === "Enter")
+  {calculate()}
+  else if(e.key === "Backspace")
+  {result.value = (result.value).slice(0, -1);
+  result.innerHTML = result.value;}
+  else if(e.key === "c")
+  {result.value=" ";
+  result.innerHTML = result.value;}
+  else if(e.key === "a")
+  {result.value+=ans;
+  result.innerHTML = result.value;}
+  
+})
