@@ -27,8 +27,21 @@ const answer = document.querySelector('.op.Ans');
 const result =  document.querySelector('.display');
 result.value = " ";
 
+//to track decimal point use
+var decimaluse = false;
+
+
 //to change the display
 function display(n){
+  if(n === '.'){
+    decimaluse = true;
+    decimal.disabled = true;
+  }
+  else if(n === '+' || n === '-' || n === '*' || n === '/' || n === '%')
+  {
+    decimal.disabled = false;
+    decimaluse = false;
+  }
   if(newline === true)
   {
     result.value = " ";
@@ -184,7 +197,11 @@ window.addEventListener('keydown', function(e){
   else if(e.key === "9")
   {display('9')}
   else if(e.key === ".")
-  {display('.')}
+  {
+    if(decimaluse === false){
+    display('.')
+    }
+  }
   else if(e.key === "+")
   {display('+')}
   else if(e.key === "-")
